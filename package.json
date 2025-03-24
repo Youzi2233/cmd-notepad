@@ -1,0 +1,24 @@
+{
+  "name": "cmd-notepad",
+  "version": "1.0.0",
+  "description": "脚本命令记事本，管理多个可执行的脚本",
+  "main": "/src/index.js",
+  "bin": {
+    "cmds": "/src/index.js"
+  },
+  "keywords": [
+    "command",
+    "notepad"
+  ],
+  "author": "Youzi2233",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "commander": "^13.1.0",
+    "inquirer": "^8.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.13",
+    "typescript": "^5.8.2"
+  }
+}

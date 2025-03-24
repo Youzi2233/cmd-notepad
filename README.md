@@ -50,7 +50,7 @@ cmds gs
 继续在当前目录下执行以下命令，会在当前目录查找`cmdList.json`文件，然后根据配置文件初始化全局脚本
 
 ```bash
-cmds init`
+cmds init
 ```
 
 可以查看脚本

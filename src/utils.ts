@@ -44,12 +44,10 @@ export const CopyFileToPath = (src: fs.PathLike, dest: fs.PathLike) => {
  * 执行命令
  */
 export const RunExec = (cmd: string) => {
-  if (cmd.startsWith("echo")) {
-    console.log(cmd.replace("echo ", ""));
-    return;
-  }
   try {
-    execSync(cmd);
+    const result = execSync(cmd);
+    console.log(`${cmd}执行：`);
+    console.log(result.toString("utf-8"));
   } catch (e) {
     exit(e);
   }
@@ -73,10 +71,11 @@ export const RunScript = (scName: string) => {
   const scripts = scriptContent.split(",");
   let idx = 0;
   while (idx !== scripts.length) {
-    RunExec(scripts[idx].trim());
+    const script = scripts[idx].trim();
+    RunExec(script);
     idx++;
   }
-  console.log(chalk.green("执行成功"));
+  console.log(chalk.green("执行完成！"));
   // 记录需要销毁的脚本
   _destroyScript.current = scriptObj.onDestroy ?? "";
   WriteToFile(_destroyScript, DESTROYSCRIPTPATH);

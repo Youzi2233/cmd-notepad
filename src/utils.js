@@ -46,7 +46,10 @@ const RunScript = (scName) => {
   // 记录需要销毁的脚本
   destroyScript.current = scriptObj.onDestroy ?? "";
   try {
-    fs.writeFileSync(path.join(__dirname, "../destroyScript.json"), JSON.stringify(destroyScript, null, 4));
+    fs.writeFileSync(
+      path.join(__dirname, "../destroyScript.json"),
+      JSON.stringify(destroyScript, null, 4)
+    );
   } catch (e) {
     console.log(chalk.red(e));
   }
@@ -63,7 +66,18 @@ const RemoveScript = (scName) => {
   }
   try {
     delete cmdList[scName];
-    fs.writeFileSync(path.join(__dirname, "../cmdList.json"), JSON.stringify(cmdList, null, 4));
+    fs.writeFileSync(
+      path.join(__dirname, "../cmdList.json"),
+      JSON.stringify(cmdList, null, 4)
+    );
+    if (destroyScript.current) {
+      RunExec(destroyScript.current);
+      destroyScript.current = "";
+      fs.writeFileSync(
+        path.join(__dirname, "../destroyScript.json"),
+        JSON.stringify(destroyScript, null, 4)
+      );
+    }
     console.log(chalk.red.green("移除成功"));
   } catch (e) {
     console.log(chalk.red(e));

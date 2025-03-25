@@ -1,10 +1,15 @@
 {
   "name": "cmd-notepad",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "脚本命令记事本，管理多个可执行的脚本",
-  "main": "/src/index.js",
+  "main": "/dist/index.js",
   "bin": {
-    "cmds": "/src/index.js"
+    "cmds": "/dist/index.js"
+  },
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "eslint && rimraf dist && tsc",
+    "lint:fix": "eslint --fix"
   },
   "keywords": [
     "command",
@@ -22,7 +27,16 @@
     "inquirer": "^8.0.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.23.0",
+    "@types/inquirer": "^9.0.7",
     "@types/node": "^22.13.13",
-    "typescript": "^5.8.2"
+    "@typescript-eslint/eslint-plugin": "^8.28.0",
+    "@typescript-eslint/parser": "^8.28.0",
+    "eslint": "^9.23.0",
+    "globals": "^16.0.0",
+    "prettier": "3.5.3",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.28.0"
   }
 }

@@ -1,6 +1,6 @@
 # cmd-notepad
 
-因为本人经常在自己电脑频繁切换公司和自己的 `git config`中的 `user.name、user.email、http.proxy` 等，所以写了这个脚本，方便切换。当然你可以自由的保存你常用的一些命令。
+因为本人经常在自己电脑频繁切换公司和自己的 npm源、`git config`中的 `user.name、user.email、http.proxy` 等，所以写了这个脚本，方便切换。当然你可以自由的保存你常用的一些命令。
 
 ## 下载
 
@@ -33,11 +33,11 @@ cmds gs
     "onDestroy": "echo manba out"
   },
   "company-gitConfig": {
-    "main": "git config --global user.name XXXX, git config --global user.email XXXX",
+    "main": "nrm use XXXX, git config --global user.name XXXX, git config --global user.email XXXX",
     "onDestroy": ""
   },
   "myself-gitConfig": {
-    "main": "git config --global user.name XXXX, git config --global user.email XXXX, git config --global http.proxy 127.0.0.1:XXXX",
+    "main": "nrm use npm, git config --global user.name XXXX, git config --global user.email XXXX, git config --global http.proxy 127.0.0.1:XXXX",
     "onDestroy": "git config --global --unset http.proxy"
   }
 }

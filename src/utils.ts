@@ -82,6 +82,18 @@ export const RunScript = (scName: string) => {
 };
 
 /**
+ * 重置销毁脚本
+ */
+export const ResetDestroy = () => {
+  const _destroyScript = destroyScript;
+  if (!_destroyScript.current) {
+    return;
+  }
+  _destroyScript.current = "";
+  WriteToFile(_destroyScript, DESTROYSCRIPTPATH);
+};
+
+/**
  * 执行销毁方法，前提是当前指向的销毁脚本和传入一致才会执行
  * 思考了一下，不应该说没有运行过脚本，而remove掉不应该执行销毁脚本
  */
@@ -93,8 +105,7 @@ export const RunDestroyScript = (script?: string) => {
   // 判断传入的script和当前指向的destroyScript是否一致，一致才去销毁
   if (_destroyScript.current === script) {
     RunExec(_destroyScript.current);
-    _destroyScript.current = "";
-    WriteToFile(_destroyScript, DESTROYSCRIPTPATH);
+    ResetDestroy();
   }
 };
 

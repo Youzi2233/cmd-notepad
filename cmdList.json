@@ -4,11 +4,11 @@
     "onDestroy": "echo manba out"
   },
   "company-gitConfig": {
-    "main": "git config --global user.name XXXX, git config --global user.email XXXX",
+    "main": "nrm use XXXX, git config --global user.name XXXX, git config --global user.email XXXX",
     "onDestroy": ""
   },
   "myself-gitConfig": {
-    "main": "git config --global user.name XXXX, git config --global user.email XXXX, git config --global http.proxy 127.0.0.1:XXXX",
+    "main": "nrm use npm, git config --global user.name XXXX, git config --global user.email XXXX, git config --global http.proxy 127.0.0.1:XXXX",
     "onDestroy": "git config --global --unset http.proxy"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "cmd-notepad",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "脚本命令记事本，管理多个可执行的脚本",
   "main": "/dist/index.js",
   "bin": {

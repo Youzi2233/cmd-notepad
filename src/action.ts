@@ -1,5 +1,5 @@
 import inquirer from "inquirer";
-import { CopyFileToPath, isPathExist, RemoveScript, RunScript, ValidateCMDList, WriteToFile } from "./utils";
+import { CopyFileToPath, isPathExist, RemoveScript, ResetDestroy, RunScript, ValidateCMDList, WriteToFile } from "./utils";
 import cmdList from "../cmdList.json";
 import fs from "fs";
 import chalk from "chalk";
@@ -115,6 +115,7 @@ export const onInit = async () => {
     }
     // 将cmdList.json文件复制到当前目录
     CopyFileToPath(CMDLISTPATH_USER, CMDLISTPATH);
+    ResetDestroy();
     console.log(chalk.green("初始化成功"));
   } catch {
     errorPrint();

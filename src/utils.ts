@@ -46,7 +46,7 @@ export const CopyFileToPath = (src: fs.PathLike, dest: fs.PathLike) => {
 export const RunExec = (cmd: string) => {
   try {
     const result = execSync(cmd);
-    console.log(`${cmd}执行：`);
+    console.log(`执行 -> ${cmd}`);
     console.log(result.toString("utf-8"));
   } catch (e) {
     exit(e);
